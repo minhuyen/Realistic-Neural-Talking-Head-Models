@@ -140,7 +140,7 @@ for epoch in range(num_epochs):
                 out = torch.cat((out, x_hat.transpose(1, 3)[img_no]), dim=1)
             out = out.type(torch.int32).to(cpu).numpy()
             plt.imshow(out)
-            # plt.show()
+            plt.show()
 
             plt.clf()
             out = x.transpose(1, 3)[0]
@@ -148,7 +148,7 @@ for epoch in range(num_epochs):
                 out = torch.cat((out, x.transpose(1, 3)[img_no]), dim=1)
             out = out.type(torch.int32).to(cpu).numpy()
             plt.imshow(out)
-            # plt.show()
+            plt.show()
 
             plt.clf()
             out = g_y.transpose(1, 3)[0]
@@ -156,7 +156,7 @@ for epoch in range(num_epochs):
                 out = torch.cat((out, g_y.transpose(1, 3)[img_no]), dim=1)
             out = out.type(torch.int32).to(cpu).numpy()
             plt.imshow(out)
-            # plt.show()
+            plt.show()
 
         lossesD.append(lossD.item())
         lossesG.append(lossG.item())
