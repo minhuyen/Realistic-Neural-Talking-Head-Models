@@ -79,7 +79,7 @@ checkpoint['D_state_dict']['W_i'] = torch.rand(
     512,  dataset.__len__())  # change W_i for finetuning
 
 G.load_state_dict(checkpoint['G_state_dict'])
-D.load_state_dict(checkpoint['D_state_dict'], strict=False)
+D.load_state_dict(checkpoint['D_state_dict'])
 
 
 """Change to finetuning mode"""
