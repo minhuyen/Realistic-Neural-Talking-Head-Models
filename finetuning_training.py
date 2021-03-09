@@ -42,7 +42,8 @@ e_hat = torch.load(path_to_embedding, map_location=cpu)
 e_hat = e_hat['e_hat']
 
 G = Generator(256, finetuning=True, e_finetuning=e_hat)
-D = Discriminator(dataset.__len__(), finetuning=True, e_finetuning=e_hat)
+D = Discriminator(dataset.__len__(), path_to_Wi,
+                  finetuning=True, e_finetuning=e_hat)
 
 G.train()
 D.train()
@@ -75,7 +76,7 @@ if os.path.isfile(path_to_save):
 """Loading from past checkpoint"""
 checkpoint = torch.load(path_to_chkpt, map_location=cpu)
 checkpoint['D_state_dict']['W_i'] = torch.rand(
-    512,  dataset.__len__())  # change W_i for finetuning
+    512,  32)  # change W_i for finetuning
 
 G.load_state_dict(checkpoint['G_state_dict'])
 D.load_state_dict(checkpoint['D_state_dict'], strict=False)
