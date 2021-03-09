@@ -76,7 +76,7 @@ if os.path.isfile(path_to_save):
 """Loading from past checkpoint"""
 checkpoint = torch.load(path_to_chkpt, map_location=cpu)
 checkpoint['D_state_dict']['W_i'] = torch.rand(
-    512, 32)  # change W_i for finetuning
+    512,  dataset.__len__())  # change W_i for finetuning
 
 G.load_state_dict(checkpoint['G_state_dict'])
 D.load_state_dict(checkpoint['D_state_dict'], strict=False)
