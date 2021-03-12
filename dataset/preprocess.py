@@ -81,7 +81,7 @@ def generate_landmarks(frames_list, face_aligner):
 
 def pick_images(video_path, pic_folder, num_images):
     cap = cv2.VideoCapture(video_path)
-
+    # cap.set(cv2.CV_CAP_PROP_FOURCC, cv2.CV_FOURCC('H', '2', '6', '5'))
     n_frames = int(cap.get(cv2.CAP_PROP_FRAME_COUNT))
 
     idxes = [1 if i % (n_frames//num_images+1) ==
@@ -116,9 +116,9 @@ for person_id in tqdm(os.listdir(path_to_mp4)):
         for video in os.listdir(os.path.join(path_to_mp4, person_id, video_id)):
 
             try:
-                # video_path = os.path.join(
-                #     path_to_mp4, person_id, video_id, video)
-                video_path = f'https://www.youtube.com/watch?v={video_id}'
+                video_path = os.path.join(
+                    path_to_mp4, person_id, video_id, video)
+                # video_path = f'https://www.youtube.com/watch?v={video_id}'
                 frame_mark = pick_images(
                     video_path, path_to_preprocess+'/' + person_id+'/'+video_id+'/'+video.split('.')[0], K)
                 frame_mark = generate_landmarks(frame_mark, face_aligner)
