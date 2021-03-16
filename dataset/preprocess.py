@@ -13,9 +13,11 @@ path_to_mp4 = '/content/txt/'
 path_to_preprocess = '/content/preprocess/'
 K = 8
 num_vid = 0
-device = torch.device('cuda:0')
+# device = torch.device('cuda:0')
+device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+
 face_aligner = face_alignment.FaceAlignment(
-    face_alignment.LandmarksType._2D, flip_input=False, device='cuda:0')
+    face_alignment.LandmarksType._2D, flip_input=False, device=device)
 
 if not os.path.isdir(path_to_preprocess):
     os.mkdir(path_to_preprocess)
