@@ -4,7 +4,7 @@
 K = 8
 
 # path to main weight
-path_to_chkpt = '/content/model_weights.tar'
+path_to_chkpt = '/home/jupyter/model_weights.tar'
 
 # path to backup
 path_to_backup = 'backup_model_weights.tar'
