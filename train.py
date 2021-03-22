@@ -48,8 +48,8 @@ optimizerD = optim.Adam(params=D.parameters(),
                         amsgrad=False)
 
 """Criterion"""
-criterionG = LossG(VGGFace_body_path='/content/content/vggface/Pytorch_VGGFACE_IR.py',
-                   VGGFace_weight_path='/content/content/vggface/Pytorch_VGGFACE.pth', device=device)
+criterionG = LossG(VGGFace_body_path='/home/jupyter/content/vggface/Pytorch_VGGFACE_IR.py',
+                   VGGFace_weight_path='/home/jupyter/content/vggface/Pytorch_VGGFACE.pth', device=device)
 criterionDreal = LossDSCreal()
 criterionDfake = LossDSCfake()
 
