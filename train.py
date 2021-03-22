@@ -21,7 +21,8 @@ plt.ion()
 
 """Create dataset and net"""
 display_training = False
-device = torch.device("cuda:0")
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
+# device = torch.device("cuda:0")
 cpu = torch.device("cpu")
 dataset = PreprocessDataset(
     K=K, path_to_preprocess=path_to_preprocess, path_to_Wi=path_to_Wi)

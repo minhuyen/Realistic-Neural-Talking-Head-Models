@@ -9,12 +9,12 @@ import face_alignment
 from matplotlib import pyplot as plt
 # from .params.params import path_to_mp4, path_to_preprocess
 
-path_to_mp4 = '/content/txt/'
-path_to_preprocess = '/content/preprocess/'
+path_to_mp4 = '/home/jupyter/dev/mp4/'
+path_to_preprocess = '/home/jupyter/preprocess/'
 K = 8
 num_vid = 0
 # device = torch.device('cuda:0')
-device = 'cuda:0' if torch.cuda.is_available() else 'cpu'
+device = 'cuda' if torch.cuda.is_available() else 'cpu'
 
 face_aligner = face_alignment.FaceAlignment(
     face_alignment.LandmarksType._2D, flip_input=False, device=device)
